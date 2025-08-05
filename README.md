@@ -16,15 +16,18 @@ A secure and user-friendly steganography tool built with Streamlit that allows y
 
 ## Project Structure
 
-    ├── app.py # Main Streamlit app
-    ├── stegano_utils.py # Image steganography functions
-    ├── audio_stegano_utils.py # Audio steganography functions
-    ├── crypto_utils.py # Encryption/decryption helpers
-    ├── audio_converter.py # Converts MP3 to WAV for processing
-    ├── assets/ # Sample media files (excluded from Git)
-    ├── test_files/ # Test files used for development & validation
-    ├── requirements.txt # Python dependencies
-    └── README.md # Project documentation
+    ├── app.py                              # Main Streamlit app
+    ├── stegano_utils.py                    # Image steganography functions
+    ├── audio_stegano_utils.py              # Audio steganography functions
+    ├── crypto_utils.py                     # Encryption/decryption helpers
+    ├── audio_converter.py                  # Converts MP3 to WAV for processing
+    ├── assets/                             # Sample media files (excluded from Git)
+    ├── test_files/                         # Test files used for development & validation
+        ├── test_audi_workflow.py
+        ├── test_crypto.py
+        ├── test_stegano.py
+    ├── requirements.txt                    # Python dependencies
+    └── README.md                           # Project documentation
 
 
 ### About `test_files/` folder
