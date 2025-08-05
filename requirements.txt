@@ -1,0 +1,6 @@
+cryptography
+stegano
+pillow
+pytest
+opencv-python
+streamlit
