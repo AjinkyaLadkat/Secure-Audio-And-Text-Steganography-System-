@@ -22,7 +22,7 @@ This project is designed with multi-layered security to ensure **confidential an
 - The secret message you enter is **encrypted using AES-256 symmetric encryption** before being hidden inside images or audio. This means the hidden data is **ciphertext**, not plain text. Even if an attacker extracts the embedded bits, they only get encrypted gibberish.
 
 ### 2. **Password-Based Key Derivation (KDF)**  
-- Your password is not used directly. Instead, it is **stretched and salted** using a strong Key Derivation Function (such as PBKDF2 or scrypt) to produce a unique, strong encryption key every time. This protects against brute-force and rainbow table attacks.
+- Your password is not used directly. Instead, it is **stretched and salted** using a strong Key Derivation Function such as PBKDF2 (that internally uses SHA-256) to produce a unique, strong encryption key every time. This protects against brute-force and rainbow table attacks.
 
 ### 3. **Temporary Key Usage**  
 - The encryption key derived from your password is **only used in memory during runtime** and is **never saved** or stored in the file or anywhere else. This prevents key leakage.
