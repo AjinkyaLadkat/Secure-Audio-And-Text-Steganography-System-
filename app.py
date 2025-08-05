@@ -13,7 +13,7 @@ if not os.path.exists("temp"):
     os.makedirs("temp")
 
 # Title
-st.markdown("<h1 style='margin-bottom: 0;'>🔐 Multimedia Steganography System</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='margin-bottom: 0;'>🔐 ShadowCrypt : Multimedia Steganography System</h1>", unsafe_allow_html=True)
 
 # Subtitle — smaller than title, bigger than normal text
 st.markdown("<h3 style='color: #DBAC53; margin-top: 4px;'>Steganography Meets Encryption — Safe, Simple, Smart</h3>", unsafe_allow_html=True)
@@ -111,7 +111,11 @@ with tab2:
                     audio_path = os.path.join("temp", uploaded_file.name)
                     with open(audio_path, "wb") as f:
                         f.write(uploaded_file.getbuffer())
-                    encrypted_message = extract_text_from_audio(audio_path)
+                    try:
+                        encrypted_message = extract_text_from_audio(audio_path)
+                    except Exception as e:
+                        st.error("⚠️ No hidden message found.")
+                        st.stop()
 
                 if not encrypted_message or encrypted_message.strip() == "":
                     st.warning("⚠️ No hidden message found.")
@@ -126,7 +130,7 @@ with tab2:
                             try:
                                 decrypted_message = decrypt_message(encrypted_message, password)
                                 st.success("✅ Message extracted successfully:")
-                                st.write(decrypted_message)
+                                st.markdown(f"```plaintext\n{decrypted_message}\n```")
                             except Exception:
                                 st.error("❌ Decryption failed. Incorrect password or corrupted data.")
 
