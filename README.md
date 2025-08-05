@@ -19,24 +19,24 @@ A secure and user-friendly steganography tool built with Streamlit that allows y
 This project is designed with multi-layered security to ensure **confidential and safe communication** via multimedia files:
 
 ### 1. **Message Encryption Before Embedding**  
-The secret message you enter is **encrypted using AES-256 symmetric encryption** before being hidden inside images or audio. This means the hidden data is **ciphertext**, not plain text. Even if an attacker extracts the embedded bits, they only get encrypted gibberish.
+- The secret message you enter is **encrypted using AES-256 symmetric encryption** before being hidden inside images or audio. This means the hidden data is **ciphertext**, not plain text. Even if an attacker extracts the embedded bits, they only get encrypted gibberish.
 
 ### 2. **Password-Based Key Derivation (KDF)**  
-Your password is not used directly. Instead, it is **stretched and salted** using a strong Key Derivation Function (such as PBKDF2 or scrypt) to produce a unique, strong encryption key every time. This protects against brute-force and rainbow table attacks.
+- Your password is not used directly. Instead, it is **stretched and salted** using a strong Key Derivation Function (such as PBKDF2 or scrypt) to produce a unique, strong encryption key every time. This protects against brute-force and rainbow table attacks.
 
 ### 3. **Temporary Key Usage**  
-The encryption key derived from your password is **only used in memory during runtime** and is **never saved** or stored in the file or anywhere else. This prevents key leakage.
+- The encryption key derived from your password is **only used in memory during runtime** and is **never saved** or stored in the file or anywhere else. This prevents key leakage.
 
 ### 4. **Least Significant Bit (LSB) Steganography**  
-The encrypted message bits are embedded in the **least significant bits** of image pixels or audio samples. LSB steganography is subtle and difficult to detect, making the hidden message invisible to casual inspection.
+- The encrypted message bits are embedded in the **least significant bits** of image pixels or audio samples. LSB steganography is subtle and difficult to detect, making the hidden message invisible to casual inspection.
 
 ### 5. **Salt Enhances Security**  
-By adding a **random salt** to the password during key derivation, even the same password will generate different keys every time, **increasing resistance against attacks** and ensuring unique encryption.
+- By adding a **random salt** to the password during key derivation, even the same password will generate different keys every time, **increasing resistance against attacks** and ensuring unique encryption.
 
 ### 6. **Combined Defense-in-Depth Approach**  
-This project **combines cryptography and steganography**, which means:
-- **Cryptography** ensures that the message content is unreadable without the password.
-- **Steganography** hides the very existence of the message.
+- This project **combines cryptography and steganography**, which means:
+    - **Cryptography** ensures that the message content is unreadable without the password.
+    - **Steganography** hides the very existence of the message.
 
 Together, these layers make unauthorized detection and decryption **exceedingly difficult**.
 
